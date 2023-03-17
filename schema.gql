@@ -1,0 +1,67 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type ProductEntity {
+  """id of the product"""
+  id: String!
+
+  """name of product"""
+  name: String!
+
+  """description of product"""
+  description: String!
+
+  """price of product"""
+  price: Int!
+}
+
+type OrderEntity {
+  """id of the order"""
+  id: String!
+
+  """id of the customer"""
+  customerId: String!
+
+  """price of order"""
+  total: Int!
+
+  """create time of order"""
+  createdAt: String!
+}
+
+type Query {
+  products: [ProductEntity!]!
+  product(id: String!): ProductEntity!
+  orders: [OrderEntity!]!
+}
+
+type Mutation {
+  createProduct(createProductInput: CreateProductInput!): ProductEntity!
+  deleteOrder(deleteOrderInput: DeleteOrderInput!): OrderEntity!
+  createOrder(createOrderInput: CreateOrderInput!): OrderEntity!
+}
+
+input CreateProductInput {
+  """name of product"""
+  name: String!
+
+  """price of product"""
+  price: Int!
+
+  """description of product"""
+  description: String!
+}
+
+input DeleteOrderInput {
+  """name of product"""
+  id: String!
+}
+
+input CreateOrderInput {
+  """id of the products"""
+  productId: [String!]!
+
+  """id of the products"""
+  customerId: String!
+}
